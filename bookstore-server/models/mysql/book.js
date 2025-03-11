@@ -2,16 +2,8 @@
 // importar mysql
 import mysql from 'mysql2/promise'
 import dotenv from 'dotenv';
+import { DEFAULT_CONNECTION } from '../../config/db.js';
 dotenv.config();
-
-// TODO: Setting DefaultConnection/CloudDB
-const DEFAULT_CONNECTION = {
-  host: 'localhost',
-  user: 'root',
-  port: 3306,
-  password: 'root',
-  database: 'moviesdb'
-}
 
 // String Conexion
 const connectionString = process.env.DATABASE_URL ?? DEFAULT_CONNECTION
@@ -52,6 +44,7 @@ export class BookModel {
       stock,
       imageUrl
     } = input
+    console.log({ input })
 
     //Crear un UUID
     const [uuidResult] = await connection.query('SELECT UUID() uuid;')
@@ -60,7 +53,7 @@ export class BookModel {
     //Insetar book
     try {
       await connection.query(
-        'INSERT INTO movie (id,title,author,description,price,stock,imageUrl) values (UUID_TO_BIN(?),?,?,?,?,?,?) ;',
+        'INSERT INTO book (id, title, author, description, price, stock, imageUrl) VALUES (UUID_TO_BIN(?),?,?,?,?,?,?) ;',
         [uuid, title, author, description, price, stock, imageUrl]
       )
     } catch (e) {
@@ -86,7 +79,7 @@ export class BookModel {
     if (!book) return false
 
     await connection.query(
-      'DELETE FROM movie WHERE id=UUID_TO_BIN(?);',
+      'DELETE FROM book WHERE id=UUID_TO_BIN(?);',
       id
     )
 
@@ -111,7 +104,7 @@ export class BookModel {
     const values = fields.map(field => input[field])
 
     await connection.query(
-      `UPDATE movie SET ${generateBodyClausule} WHERE id = UUID_TO_BIN(?)`,
+      `UPDATE book SET ${generateBodyClausule} WHERE id = UUID_TO_BIN(?)`,
       [...values, id] // Pasar los valores y el ID
     )
 

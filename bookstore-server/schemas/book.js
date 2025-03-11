@@ -10,13 +10,13 @@ const bookSchema = z.object({
     invalid_type_error: 'Author movie must be a string',
     required_error: 'Author name is required'
   }),
-  author: z.string({
+  description: z.string({
     invalid_type_error: 'Description must be a string',
     required_error: 'Descriptio about a book is required'
   }),
   price: z.number().int().min(50).max(100000),
-  stock: z.number.int().min(0).max(5000),
-  imagenUrl: z.string().url({
+  stock: z.number().int().min(0).max(5000),
+  imageUrl: z.string().url({
     message: 'Poster must be a valid URL'
   })
 
@@ -25,11 +25,11 @@ const bookSchema = z.object({
 // Para el EMScript Module no se expotar las funciones como modulos sino que se exportan de manera individual
 
 export function validateBook(object) {
-  return movieSchema.safeParse(object)
+  return bookSchema.safeParse(object)
 }
 
 export function validatePartialBook(object) {
   // Si no esta un parametro del esquema no se valida
   // Si esta se valida a como esta en el esquema
-  return movieSchema.partial().safeParse(object)
+  return bookSchema.partial().safeParse(object)
 }

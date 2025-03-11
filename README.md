@@ -33,7 +33,6 @@ Permite a los usuarios **explorar libros, autenticarse, gestionar su perfil y re
  │   ├── middleware/          # Middleware de autenticación JWT
  │   ├── config/db.js         # Conexión a MongoDB
  │   ├── server.js            # Servidor Express principal
- │   ├── .env                 # Variables de entorno
  │   ├── package.json         # Dependencias del backend
  │
  ├── README.md                # Documentación del proyecto

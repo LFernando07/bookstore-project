@@ -4,7 +4,7 @@ import { BookController } from "../controllers/book.js";
 export const createBookRouter = ({ bookModel }) => {
   const bookRouter = Router()
 
-  const bookController = new BookController(bookModel)
+  const bookController = new BookController({ bookModel })
 
   bookRouter.get('/', bookController.getAll)
   bookRouter.get('/:id', bookController.getById)

@@ -1,5 +1,5 @@
 // TODO: Import bookModel
-import { validateBook, validatePartialBook } from '../schemas/Book.js'
+import { validateBook, validatePartialBook } from '../schemas/book.js'
 
 export class BookController {
   constructor({ bookModel }) {
@@ -7,7 +7,7 @@ export class BookController {
   }
 
   getAll = async (req, res) => {
-    const books = await this.book.getAll()
+    const books = await this.bookModel.getAll()
     res.json(books)
   }
 
