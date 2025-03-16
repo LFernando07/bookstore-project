@@ -10,6 +10,9 @@ const ACCEPTED_ORIGINS = [
 
 // Se reclara que los host sean de llave vacia para evitar colisionar el servidor
 export const corsMiddlewares = ({ acceptedorigins = ACCEPTED_ORIGINS } = {}) => cors({
+  // Permitir cookies en solicitudes frontend
+  credentials: true,
+
   origin: (origin, callback) => {
 
     if (acceptedorigins.includes(origin)) {

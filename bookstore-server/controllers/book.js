@@ -1,4 +1,3 @@
-// TODO: Import bookModel
 import { validateBook, validatePartialBook } from '../schemas/book.js'
 
 export class BookController {

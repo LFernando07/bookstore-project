@@ -44,7 +44,6 @@ export class BookModel {
       stock,
       imageUrl
     } = input
-    console.log({ input })
 
     //Crear un UUID
     const [uuidResult] = await connection.query('SELECT UUID() uuid;')
