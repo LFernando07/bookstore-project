@@ -5,6 +5,7 @@ import { createBookRouter } from './routes/book.js'
 import { createAuthRouter } from './routes/auth.js'
 import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv';
+import { authMiddleware } from './middlewares/authCors.js'
 dotenv.config();
 
 
@@ -13,8 +14,9 @@ export const createApp = ({ bookModel, userModel }) => {
   const app = express()
 
   // Add cors
-  app.use(corsMiddlewares())
   app.use(cookieParser())
+  app.use(corsMiddlewares())
+  app.use(authMiddleware)
 
   app.use(express.json())
   app.disable('x-powered-by')

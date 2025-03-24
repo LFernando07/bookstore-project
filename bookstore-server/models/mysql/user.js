@@ -26,7 +26,6 @@ export class UserModel {
 
     // Generated hash-password
     const saltRounds = parseInt(process.env.SALT_ROUNDS, 10);
-    console.log('saltRounds:', saltRounds); // Verificar el valor de saltRounds
 
     const hashedpassword = await bcrypt.hash(password, saltRounds)
 
@@ -42,7 +41,7 @@ export class UserModel {
 
     // Recuperamos el user para mostrarla en JSON de salida
     const [user] = await connection.query(
-      'SELECT BIN_TO_UUID(id),username, email, FROM user WHERE id = UUID_TO_BIN(?); ',
+      'SELECT BIN_TO_UUID(id), username, email FROM user WHERE id = UUID_TO_BIN(?);',
       [uuid]
     )
 

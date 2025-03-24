@@ -54,7 +54,7 @@ export class AuthController {
           username: user.username,
           email: user.email
         }
-      });
+      })
     } catch (error) {
       console.log(`error`)
       res.status(500).json({ message: error.message });
@@ -69,13 +69,9 @@ export class AuthController {
 
   // TODO: Refactor method and modified authCors.js
   profileUser = async (req, res) => {
-    try {
+    const { user } = req.session
 
-      const { email } = req.body;
-      const user = await this.userModel.findByEmail(email);
-      res.json(user);
-    } catch (error) {
-      res.status(500).json({ message: 'Error al obtener usuario' });
-    }
+    if (!user) return res.status(403).send('Access not authorized')
+    res.json({ user })
   }
 }
