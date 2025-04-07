@@ -1,0 +1,30 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que el layout ocupe al menos toda la altura de la ventana */
+  width: 100%; /* Ancho completo */
+  max-width: 1200px; /* Ancho máximo para centrar el contenido */
+  margin: 0 auto; /* Centrar horizontalmente */
+  background-color: #ffffff; /* Fondo blanco */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para el layout */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.layout-header {
+  width: 100%;
+}
+
+.layout-content {
+  flex: 1; /* Permite que el contenido crezca dinámicamente */
+  width: 100%;
+  padding: 20px;
+}
+
+.layout-footer {
+  background-color: #f6f5f7;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+}

@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/landingPage.css";
 import { ContactForm } from "../coomponents/Layout/ContactForm.jsx";
 
-export default function LandingPage() {
+export const LandingPage = () => {
   return (
     <div className="landing-page">
       <section className="hero-section">

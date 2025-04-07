@@ -4,7 +4,7 @@ import SignInForm from "../coomponents/auth/Login";
 import SignUpForm from "../coomponents/Auth/register";
 import "../styles/auth.css";
 
-export default function Auth() {
+export const Auth = () => {
   const location = useLocation();
   const [type, setType] = useState("signIn");
 
