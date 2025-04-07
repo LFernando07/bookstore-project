@@ -15,7 +15,7 @@ function ListOfBooks({ books }) {
 
 function NoGetBooks() {
   return (
-    <p>No se encontraron libros para mostrar</p>
+    <p>No se encontraron libros disponibles para mostrar</p>
 
   )
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { NavBar } from "./coomponents/Layout/NavBar.jsx";
+import { Footer } from "./coomponents/Layout/ContactForm.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { Cart } from "./coomponents/Cart/Cart.jsx";
 import { Profile } from "./coomponents/Auth/Profile.jsx";

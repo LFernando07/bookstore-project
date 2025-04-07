@@ -11,11 +11,11 @@ export const Footer = () => {
             <h2>Información de Contacto</h2>
             <p>
               <i className="fas fa-envelope"></i>
-              ejemplo@gmail.com
+              lfbp5000@gmail.com
             </p>
             <p>
               <i className="fas fa-phone"></i>
-              +1 (234) 567 8900
+              +52 (735) 233 0176
             </p>
           </div>
         </div>
