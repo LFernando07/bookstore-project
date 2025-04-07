@@ -1,6 +1,6 @@
 import '../../styles/footer.css';
 
-export const Footer = () => {
+export const ContactForm = () => {
   return (
     <div className="contact">
       <h1>Contáctanos</h1>
