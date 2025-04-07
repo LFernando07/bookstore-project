@@ -9,7 +9,7 @@ export const authMiddleware = (req, res, next) => {
       const data = jwt.verify(token, process.env.SECRET_JWT_KEY);
       req.session.user = data;
     } catch (error) {
-      console.log('Invalid Token');
+      res.json({ error: 'Invalid Token' });
     }
   }
 

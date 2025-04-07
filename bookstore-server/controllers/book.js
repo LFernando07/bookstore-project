@@ -38,11 +38,10 @@ export class BookController {
   }
 
   create = async (req, res) => {
+    // Validar que el body sea correcto
     const result = validateBook(req.body)
 
     try {
-      // Validar que el body sea correcto
-
       if (!result.success) {
         // 422 Unprocessable Entity
         return res.status(400).json({ error: JSON.parse(result.error.message) })

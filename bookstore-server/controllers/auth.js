@@ -8,16 +8,22 @@ export class AuthController {
   }
 
   createUser = async (req, res) => {
+    // Validar que el body sea correcto
     const result = validateUser(req.body)
 
-    if (!result.success) {
-      // 422 Unprocessable Entity
-      return res.status(400).json({ error: JSON.parse(result.error.message) })
+    try {
+      if (!result.success) {
+        // 422 Unprocessable Entity
+        return res.status(400).json({ error: JSON.parse(result.error.message) })
+      }
+
+      const newUser = await this.userModel.create({ input: result.data })
+
+      res.status(201).json(newUser)
+
+    } catch (error) {
+      res.status(500).json({ error: 'Error interno del servidor' });
     }
-
-    const newUser = await this.userModel.create({ input: result.data })
-
-    res.status(201).json(newUser)
   }
 
   loginUser = async (req, res) => {
@@ -56,22 +62,33 @@ export class AuthController {
         }
       })
     } catch (error) {
-      console.log(`error`)
       res.status(500).json({ message: error.message });
     }
   }
 
   logoutUser = async (req, res) => {
-    res
-      .clearCookie('access_token')
-      .json({ message: 'Logout successful' })
+    try {
+      res
+        .clearCookie('access_token')
+        .json({ message: 'Logout successful' })
+
+    } catch (error) {
+      res.status(500).json({ message: 'Error al cerrar sesión' });
+
+    }
   }
 
   // TODO: Refactor method and modified authCors.js
   profileUser = async (req, res) => {
-    const { user } = req.session
+    try {
+      const { user } = req.session
 
-    if (!user) return res.status(403).send('Access not authorized')
-    res.json({ user })
+      if (!user) return res.status(403).send('Access not authorized')
+      res.json({ user })
+
+    } catch (error) {
+      res.status(500).json({ message: 'Error al obtener el perfil del usuario' });
+
+    }
   }
 }

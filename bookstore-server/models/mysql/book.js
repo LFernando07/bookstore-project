@@ -4,7 +4,6 @@ import mysql from 'mysql2/promise'
 import dotenv from 'dotenv';
 import { validate as isUuid } from 'uuid';
 import { DEFAULT_CONNECTION } from '../../config/db.js';
-import { validateBook, validatePartialBook } from '../../schemas/book.js';
 dotenv.config();
 
 // String Conexion
