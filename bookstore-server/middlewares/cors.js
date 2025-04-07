@@ -5,6 +5,7 @@ const ACCEPTED_ORIGINS = [
   'http://localhost:8080',
   'http://localhost:1234',
   'http://bookstore.com',
+  'http://localhost:5173',
   // TODO: add URL Deploy project
 ]
 
