@@ -16,3 +16,36 @@
   color: #555;
   margin-top: 20px;
 }
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  text-align: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3; /* Color del borde externo */
+  border-top: 5px solid #3498db; /* Color del borde superior (animado) */
+  border-radius: 50%;
+  animation: spin 1s linear infinite; /* Animación de giro */
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-container p {
+  font-size: 1.2rem;
+  color: #555;
+}

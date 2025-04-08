@@ -14,6 +14,7 @@ export const NavBar = () => {
         </label>
         <ul className="navbar-menu">
           <li><Link to="/cart">Carrito</Link></li>
+          <li><Link to="/books">Libros</Link></li>
           <li><Link to="/login">Iniciar Sesión</Link></li>
           <li><Link to="/register">Registrarse</Link></li>
           <li><Link to="/profile">Perfil</Link></li>

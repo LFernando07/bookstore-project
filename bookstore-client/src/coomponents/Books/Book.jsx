@@ -1,9 +1,9 @@
 import '../../styles/book.css';
 
-export default function Book({ book }) {
+export const Book = ({ book }) => {
   return (
     <div className="card">
-      <img src={book.imageUrl} className="card-img-top" alt={`imagen de: ${book.image}`} />
+      <img src={book.imageUrl} className="card-img-top" alt={`imagen de: ${book.title}`} />
       <div className="card-body">
         <h5 className="card-title">{book.title}</h5>
         <p className="card-text">{book.description}</p>

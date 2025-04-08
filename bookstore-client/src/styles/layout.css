@@ -18,13 +18,15 @@
   flex: 1; /* Permite que el contenido crezca dinámicamente */
   width: 100%;
   padding: 20px;
+  margin-bottom: 30px;
 }
 
 .layout-footer {
   background-color: #f6f5f7;
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   font-size: 0.9rem;
   color: #555;
+  margin-top: auto; /* Empuja el footer hacia abajo si hay espacio disponible */
 }
